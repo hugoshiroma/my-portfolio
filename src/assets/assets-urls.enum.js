@@ -1,0 +1,2 @@
+export const artBackground = "https://raw.githubusercontent.com/hugoshiroma/my-portfolio/master/src/assets/images/abstract-art-wallpaper.jpg";
+export const personalPhoto = "https://raw.githubusercontent.com/hugoshiroma/my-portfolio/master/src/assets/images/my-photo.png";

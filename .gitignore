@@ -24,3 +24,10 @@ yarn-error.log*
 
 # assets
 /assets/images
+
+# misc
+.eslintcache
+debug.log
+.vscode
+package-lock.json
+.eslintcache
