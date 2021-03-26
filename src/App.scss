@@ -16,16 +16,41 @@
   width: 100%;
   height: calc(100% - 4em);
   text-align: left;
-  padding: 0 2em 2em;
+  padding: 1em 2em 2em;
   box-sizing: border-box;
 }
 
-h3, h4 {
+h3,
+h4 {
   margin: 0;
 }
 
 .background-image {
   position: absolute;
+  overflow: auto;
   height: 100vh;
-  left: -2em;
+  width: 100%;
+  background-attachment: fixed;
+  background-position-x: -1.5rem;
+  background-position-y: 100%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .background-image {
+    position: absolute;
+    background-size: cover;
+    background-position-x: -10rem;
+    left: 0;
+  }
+
+  .page {
+    height: max-content;
+    padding: 1em 0.5em 0.5em;
+    top: 4em;
+  }
+
+  header {
+    padding: 0 0.5rem;
+  }
 }

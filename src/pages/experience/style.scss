@@ -1,3 +1,101 @@
-#my-experience, #my-experience .glass-panel {
-    height: 100%;
+#my-experience,
+#my-experience .description {
+  height: 100%;
+}
+
+#my-experience {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .description {
+    padding: 0 50px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: auto;
+
+    h3 {
+      padding: 0 2em;
+    }
+
+    p {
+      margin: 0 5rem;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .container-photos {
+    width: 75%;
+    height: 50%;
+    margin: 2em auto;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  .description::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Track */
+  .description::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  .description::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  .description::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  p {
+    padding-top: 20px;
+    text-align: left;
+    font-family: "Roboto Slab", serif;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 1.7em;
+  }
+}
+
+@media (max-width: 768px) {
+  #my-experience {
+    display: flex;
+    flex-flow: column;
+
+    .description {
+      padding: 1.5em !important;
+      margin: 0.5rem 0;
+  
+      p {
+        margin: 0 !important;
+        font-size: 0.9em !important;
+      }
+    }
+
+    .container-photos {
+      width: 100% !important;
+      margin-bottom: 0;
+
+      .container-photo {
+        left: 0 !important;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .photos {
+      flex-flow: column;
+    }
+  }
+
 }
