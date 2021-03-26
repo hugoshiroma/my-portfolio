@@ -1,30 +1,60 @@
-import React, { useRef, useEffect } from 'react'
-import { NavLink } from 'react-router-dom';
-import { headerAnimation } from '../../animations/header.animation';
-import './style.scss';
+import React, { useRef, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const links = [
-    {to: '/about', content: 'Sobre'},
-    {to: '/projects', content: 'Projetos'},
-    {to: '/experience', content: 'Experiência'},
-    {to: '/contact', content: 'Contato'},
-]
+import { headerAnimation } from "animations/header.animation";
+import { Button, Sidebar } from "components";
+import { helpers } from "utils";
 
-export const HeaderComponent = () => {
-    let introHeader = useRef(null);
+import "./style.scss";
 
-    useEffect(() => {
-            headerAnimation(introHeader);
+const { isMobile } = helpers;
+
+const Header = ({ links }) => {
+  const [sidebarToggled, toggleSidebar] = useState(false);
+  let introHeader = useRef(null);
+
+  useEffect(() => {
+    headerAnimation(introHeader);
+  }, []);
+
+  return (
+    <>
+      <header
+        className="container"
+        ref={(el) => (introHeader = el)}
+        style={
+          isMobile()
+            ? {
+                background: "rgba(0, 0, 0, 0)",
+                backdropFilter: "none",
+                boxShadow: "none",
+              }
+            : {}
         }
-    )
+      >
+        {!isMobile() &&
+          links &&
+          links.map(({ to, content }) => (
+            <NavLink key={content} to={to} data-content={content} exact>
+              {content}
+            </NavLink>
+          ))}
+        {isMobile() && (
+          <Button onClick={() => toggleSidebar(!sidebarToggled)}>
+            <FontAwesomeIcon size="4x" icon="bars" />
+          </Button>
+        )}
+      </header>
+      {sidebarToggled && (
+        <Sidebar
+          links={links}
+          onBlur={() => toggleSidebar(false)}
+          toggled={sidebarToggled}
+        />
+      )}
+    </>
+  );
+};
 
-    return (
-        <>
-            <header className="container" ref={el => introHeader = el}>
-                {links.map(({to, content}) => (
-                    <NavLink to={to} data-content={content} exact>{content}</NavLink>
-                ))}
-            </header>
-        </>
-    );
-}
+export default Header;

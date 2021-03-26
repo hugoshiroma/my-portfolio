@@ -1,39 +1,33 @@
 import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
 import { Route, Redirect } from "react-router-dom";
 import { Transition } from "react-transition-group";
-import { HeaderComponent } from "./components/header";
-import "./components/icons/index.icons";
-import { HomePage } from "./pages/home";
-import { ProjectsPage } from "./pages/projects";
-import { ExperiencePage } from "./pages/experience";
-import "./App.scss";
-import { artBackground } from "./assets/assets-urls.enum";
-import { backgroundImageAnimation } from "./animations/background-image.animation";
 
-const routes = [
-  { name: "Sobre", path: "/about", Component: HomePage },
-  { name: "Projetos", path: "/projects", Component: ProjectsPage },
-  { name: "Experiência", path: "/experience", Component: ExperiencePage },
-];
+import { Header } from "components";
+import "components/icons";
+import { artBackground } from "assets/assets-urls.enum";
+import { backgroundImageAnimation } from "animations/background-image.animation";
+import { fadeout } from "animations/fadeout";
+
+import "./App.scss";
+import { links, routes } from "./config";
 
 function App() {
   let backgroundIntro = useRef();
-  let pageOnExit = useRef(null);
+  let pageOnExit = useRef();
 
   useEffect(() => {
     backgroundImageAnimation(backgroundIntro);
-  }, []);
+  }, [backgroundIntro]);
 
   return (
-    <div className="App">
-      <img
-        className="background-image"
-        src={artBackground}
-        alt="white partial background"
-        ref={(el) => (backgroundIntro = el)}
-      />
-      <HeaderComponent></HeaderComponent>
+    <div
+      className="App background-image"
+      ref={(el) => {
+        backgroundIntro = el;
+      }}
+      style={{ backgroundImage: `url(${artBackground})` }}
+    >
+      <Header links={links} />
       {routes.map(({ name, path, Component }) => (
         <Route key={name} path={path} exact>
           {({ match }) => (
@@ -41,23 +35,14 @@ function App() {
               nodeRef={pageOnExit}
               in={match != null}
               unmountOnExit
-              addEndListener={(node, done) => {
-                gsap
-                  .timeline({
-                    defaults: { ease: "power3.inOut", duration: 1 },
-                  })
-                  .to(
-                    node,
-                    {
-                      autoAlpha: match != null ? 1 : 0,
-                      opacity: 0,
-                      onComplete: done,
-                    },
-                    0
-                  );
-              }}
+              addEndListener={(node, done) => fadeout(node, done, match)}
             >
-              <div className="page" ref={el => {pageOnExit = el}}>
+              <div
+                className="page"
+                ref={(el) => {
+                  pageOnExit = el;
+                }}
+              >
                 <Component />
               </div>
             </Transition>

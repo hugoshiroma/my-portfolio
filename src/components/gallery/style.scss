@@ -1,0 +1,12 @@
+.photos {
+  width: 100%;
+  align-items: center;
+  display: inline-flex;
+  position: relative;
+  flex-flow: row;
+
+  .hover-wrapper {
+    position: absolute;
+    z-index: 2;
+  }
+}

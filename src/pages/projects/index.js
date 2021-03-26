@@ -1,13 +1,15 @@
-import React, {  } from 'react';
-import './style.scss';
+import React from "react";
+
+import { Panel } from 'components';
+
+import "./style.scss";
 
 export const ProjectsPage = () => {
-
-    return (
-        <>
-            <div id="my-projects">
-                É nóis por nóis e depois é nóis dnv
-            </div>
-        </>
-    )
-}
+  return (
+    <>
+      <div id="my-projects">
+        <Panel type="default" />
+      </div>
+    </>
+  );
+};

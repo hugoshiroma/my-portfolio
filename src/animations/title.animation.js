@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 
 export const titleAnimation = elem => {
-    elem && elem.current &&
     gsap.timeline({
         defaults: {ease: 'power2.inOut', duration: 1.5}
     })
