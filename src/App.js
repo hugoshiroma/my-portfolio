@@ -29,7 +29,7 @@ function App() {
     >
       <Header links={links} />
       {routes.map(({ name, path, Component }) => (
-        <Route key={name} path={path} exact>
+        <Route key={name} path={path}>
           {({ match }) => (
             <Transition
               nodeRef={pageOnExit}

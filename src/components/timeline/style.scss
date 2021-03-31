@@ -131,12 +131,48 @@
 
   .content {
     transition: stroke 0.15s ease-out, color 0.15s ease-out;
+    outline: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 40px;
+    box-shadow: 4px 4px 10px rgba(46, 54, 68, 0.2);
+    transition: 0.13s ease-in-out;
+    padding: 0 2em 0 0.5em;
+    position: relative;
+    display: flex;
+    color: black;
+    stroke: black;
+    position: relative;
+    box-shadow: inset 0px -8px 0px #dddddd, 0px -8px 0px #f4f5f6;
+    border-radius: 40px;
+    &:active {
+      box-shadow: none;
+      .content__container {
+        box-shadow: none;
+        .content__icon {
+          transform: translate3d(0px, 0px, 0px);
+        }
+      }
+    }
+    &__container {
+      position: relative;
+      top: 4px;
+    }
+    &__icon {
+      transform: translate3d(0px, -4px, 0px);
+      position: relative;
+      display: flex;
+      transition: 0.13s ease-in-out;
+    }
   }
 
   section {
     display: inline-flex;
-    height: 4em;
+    height: 5em;
     width: min-content;
+    border-radius: 40px;
+    transform: translate(0px, 10px);
   }
 
   .content:hover {
@@ -148,33 +184,24 @@
   .row {
     height: min-content;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(10%);
     display: flex;
     flex-flow: column;
     margin-left: 1.5em;
-  }
-
-  .content {
-    display: flex;
   }
 
   .bracket {
     font-size: 3em;
     left: 0;
     margin-right: -15px;
-    margin-top: 11px;
-  }
-
-  .content {
-    color: black;
-    stroke: black;
+    margin-top: 8px;
   }
 
   .mainline {
     position: relative;
     margin-left: auto;
     transform: translate(-50%, 50%);
-    right: calc(100% - 24px);
+    right: calc(100% - 32.5px);
     margin-top: -40px;
 
     line {
@@ -186,7 +213,7 @@
   .checkpoint {
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(50%);
     z-index: 1;
   }
 }

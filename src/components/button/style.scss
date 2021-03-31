@@ -1,6 +1,6 @@
 .button {
   position: absolute;
-  top: .5em;
+  top: 1em;
   right: .8em;
 
   padding: 0;
@@ -13,35 +13,34 @@
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(15px);
   border-radius: 40px;
-  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.1);
+  box-shadow: 4px 4px 10px rgba(46, 54, 68, 0.2);
   transition: 0.13s ease-in-out;
   cursor: pointer;
-  &:active {
-    box-shadow: none;
-    .button__content {
+  &:active{
+    box-shadow:none;
+    .button__content{
       box-shadow: none;
-      .button__text,
-      .button__icon {
-        transform: translate3d(0px, 0px, 0px);
+      .button__text, .button__icon{
+        transform:translate3d(0px, 0px, 0px);
       }
     }
   }
-  &__content {
-    position: relative;
-    display: grid;
-    top: 5px;
-    padding: 20px;
-    width: 100%;
-    height: 100%;
+  &__content{
+    position:relative;
+    display:grid;
+    
+    padding:20px;
+    width:100%;
+    height:100%;
 
-    place-content: center;
-
-    box-shadow: inset 0px -8px 0px rgba(255, 255, 255, 0.3),
-      0px 0px 0px #f4f5f6;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    
+    box-shadow:inset 0px -8px 0px #dddddd, 0px -8px 0px #f4f5f6;
     border-radius: 40px;
-    transition: 0.13s ease-in-out;
-
-    z-index: 1;
+    transition: .13s ease-in-out; 
+    
+    z-index:1;
   }
   &__icon {
     position: relative;
@@ -81,3 +80,5 @@
     transition: 0.13s ease-in-out;
   }
 }
+
+

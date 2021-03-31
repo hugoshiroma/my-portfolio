@@ -104,9 +104,9 @@ const Timeline = ({
                 style={{
                   marginTop: continuation
                     ? window.innerWidth < 768
-                      ? "-4em"
-                      : "-14.35%"
-                    : i !== 0 && "5em",
+                      ? "-4.95em"
+                      : "-17.8%"
+                    : i !== 0 && "3.2em",
                   marginRight: continuation ? "2em" : 0,
                   marginLeft:
                     experiences[i].continuation &&
@@ -117,37 +117,39 @@ const Timeline = ({
                 }}
               >
                 {continuation && (
-                  <div className="bracket" style={{ marginLeft: "13px" }}>
+                  <div className="bracket" style={{ marginLeft: "-20px" }}>
                     {"}"}
                   </div>
                 )}
-                <svg
-                  className="checkpoint"
-                  height="32"
-                  width="32"
-                  style={{ marginLeft: continuation ? "60px" : 0 }}
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="5"
-                    stroke="black"
-                    strokeWidth="10"
-                    left="0"
-                    top="0"
-                    fill="white"
-                  />
-                </svg>
                 <div
                   className={`content ${handleSelected(job, company)}`}
-                  onClick={() => handleSelect(job, company, description, photos)}
+                  onClick={() =>
+                    handleSelect(job, company, description, photos)
+                  }
                   ref={sections[i]}
+                  style={{ left: continuation ? "2.5em" : "0" }}
                 >
-                  <div className="bracket">{"{"}</div>
-                  <div className="row">
-                    <h3>{job}</h3>
-                    <h4 className="subtitle">{company}</h4>
-                    <h4 className="subtitle">{`${startDate} à ${endDate}`}</h4>
+                  <div className="content__container">
+                    <div className="content__icon">
+                      <svg className="checkpoint" height="32" width="32">
+                        <circle
+                          cx="16"
+                          cy="16"
+                          r="5"
+                          stroke="black"
+                          strokeWidth="10"
+                          left="0"
+                          top="0"
+                          fill="white"
+                        />
+                      </svg>
+                      <div className="bracket">{"{"}</div>
+                      <div className="row">
+                        <h3>{job}</h3>
+                        <h4 className="subtitle">{company}</h4>
+                        <h4 className="subtitle">{`${startDate} à ${endDate}`}</h4>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {(i !== experiences.length - 2 || continuation) && (
@@ -156,8 +158,8 @@ const Timeline = ({
                     height={continuation ? 8 : 156}
                     width={continuation ? 65 : 8}
                     style={{
-                      top: continuation && "50%",
-                      transform: continuation && "translate(110%, -50%)",
+                      top: continuation && "32%",
+                      transform: continuation && "translate(35%, 0%)",
                       marginLeft: continuation && 0,
                       marginTop: continuation && 0,
                     }}
