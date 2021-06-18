@@ -112,15 +112,10 @@ const Timeline = ({
                     experiences[i].continuation &&
                     sections[i - 1] &&
                     sections[i - 1].current
-                      ? `${sections[i - 1].current.scrollWidth + 32}px`
+                      ? `${sections[i - 1].current.scrollWidth}px`
                       : "0",
                 }}
               >
-                {continuation && (
-                  <div className="bracket" style={{ marginLeft: "-20px" }}>
-                    {"}"}
-                  </div>
-                )}
                 <div
                   className={`content ${handleSelected(job, company)}`}
                   onClick={() =>
@@ -130,7 +125,7 @@ const Timeline = ({
                   style={{ left: continuation ? "2.5em" : "0" }}
                 >
                   <div className="content__container">
-                    <div className="content__icon">
+                    <div className="content__text">
                       <svg className="checkpoint" height="32" width="32">
                         <circle
                           cx="16"
@@ -149,6 +144,27 @@ const Timeline = ({
                         <h4 className="subtitle">{company}</h4>
                         <h4 className="subtitle">{`${startDate} à ${endDate}`}</h4>
                       </div>
+                      {experiences[i + 1] && experiences[i + 1].continuation && (
+                        <>
+                          <div className="bracket continuation-bracket">{"}"}</div>
+                          <svg
+                            className="continuation-checkpoint"
+                            height="32"
+                            width="32"
+                          >
+                            <circle
+                              cx="16"
+                              cy="16"
+                              r="5"
+                              stroke="black"
+                              strokeWidth="10"
+                              left="0"
+                              top="0"
+                              fill="white"
+                            />
+                          </svg>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -156,10 +172,10 @@ const Timeline = ({
                   <svg
                     className="mainline"
                     height={continuation ? 8 : 156}
-                    width={continuation ? 65 : 8}
+                    width={continuation ? 130 : 8}
                     style={{
                       top: continuation && "32%",
-                      transform: continuation && "translate(35%, 0%)",
+                      transform: continuation && "translate(32%, -50%)",
                       marginLeft: continuation && 0,
                       marginTop: continuation && 0,
                     }}
@@ -167,7 +183,7 @@ const Timeline = ({
                     <line
                       x1="0"
                       y1="0"
-                      x2={continuation ? 100 : 0}
+                      x2={continuation ? 130 : 0}
                       y2={continuation ? 0 : 156}
                     />
                   </svg>

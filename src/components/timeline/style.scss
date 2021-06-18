@@ -138,19 +138,19 @@
     border-radius: 40px;
     box-shadow: 4px 4px 10px rgba(46, 54, 68, 0.2);
     transition: 0.13s ease-in-out;
-    padding: 0 2em 0 0.5em;
+    padding: 0 1em 0 0.5em;
     position: relative;
     display: flex;
     color: black;
     stroke: black;
     position: relative;
-    box-shadow: inset 0px -8px 0px #dddddd, 0px -8px 0px #f4f5f6;
+    box-shadow: inset 0px -8px 0px #dddddd, 0px -8px 0px #ffffff;
     border-radius: 40px;
     &:active {
-      box-shadow: none;
+      box-shadow: inset 0px 0px 0px #dddddd, 0px 0px 0px #ffffff;
       .content__container {
         box-shadow: none;
-        .content__icon {
+        .content__text {
           transform: translate3d(0px, 0px, 0px);
         }
       }
@@ -159,8 +159,8 @@
       position: relative;
       top: 4px;
     }
-    &__icon {
-      transform: translate3d(0px, -4px, 0px);
+    &__text {
+      transform: translate3d(0px, -7px, 0px);
       position: relative;
       display: flex;
       transition: 0.13s ease-in-out;
@@ -173,6 +173,15 @@
     width: min-content;
     border-radius: 40px;
     transform: translate(0px, 10px);
+
+    .continuation-bracket {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+
+    .continuation-checkpoint {
+      transform: translateY(50%);
+    }
   }
 
   .content:hover {
