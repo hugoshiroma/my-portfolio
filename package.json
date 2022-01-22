@@ -1,0 +1,9 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "My personal portfolio. That`s it.",
+  "main": "index.js",
+  "repository": "https://github.com/hugoshiroma/my-portfolio.git",
+  "author": "Hugo Gaio Shiroma",
+  "license": "MIT"
+}
