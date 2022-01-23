@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "my-ui": {
+      "signature": "75aac632e3d58458ebb38f8b1a93a0e0",
+      "file": true
+    }
+  }
+}

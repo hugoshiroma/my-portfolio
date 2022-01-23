@@ -1,12 +1,11 @@
 {
-  "name": "my-portfolio",
+  "name": "my-ui",
   "version": "1.0.0",
-  "description": "My personal portfolio. That`s it.",
+  "description": "My personal UI (based on incredible UI developed by Create Tim). That`s it.",
   "main": "index.js",
-  "repository": "https://github.com/hugoshiroma/my-portfolio.git",
+  "repository": "https://github.com/hugoshiroma/my-ui.git",
   "author": "Hugo Gaio Shiroma",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -31,5 +30,6 @@
     "react-slick": "0.28.1",
     "styled-components": "5.3.0",
     "webpack": "4.46.0"
-  }
+  },
+  "yalcSig": "75aac632e3d58458ebb38f8b1a93a0e0"
 }
